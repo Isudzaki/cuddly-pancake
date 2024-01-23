@@ -7,13 +7,13 @@ public sealed class TilesColorChecker : MonoBehaviour
     [SerializeField] private DesiredColorSetter desColorSetter;
     #endregion
 
-    //Invoking SetTiles void
     #region Start
+    //Invoking SetTiles void
     private void Start()=>Invoke(nameof(CheckTiles), 5f);
     #endregion
 
-    //Change the tiles color randomly
     #region Check Tiles
+    //Change the tiles color randomly
     public void CheckTiles()
     {
         foreach (Tile tile in TilesList.Instance.Tiles)

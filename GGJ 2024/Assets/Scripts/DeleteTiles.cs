@@ -13,9 +13,7 @@ public sealed class DeleteTiles : MonoBehaviour
     {
         if(other.TryGetComponent(out Tile tile))
         {
-            Transform tilePos = tile.transform;
-
-            GameObject newTile = Instantiate(tilePrefab, new Vector3(tilePos.position.x, -1000, tilePos.position.z),Quaternion.identity);
+            GameObject newTile = Instantiate(tilePrefab, new Vector3(tile.x, -1000, tile.z),Quaternion.identity);
 
             TilesList.Instance.Tiles.Add(newTile.GetComponent<Tile>());
             TilesList.Instance.Tiles.Remove(tile);

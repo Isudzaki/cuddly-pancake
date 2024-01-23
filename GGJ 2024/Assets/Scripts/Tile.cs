@@ -8,8 +8,12 @@ public sealed class Tile : MonoBehaviour
     private TileColor _tile;
     #endregion
 
-    //Recieving the TileColor to this tile
+    #region Public Vars
+    public float x,z;
+    #endregion
+
     #region Tile Color
+    //Recieving the TileColor to this tile
     public TileColor TileColor
     {
         get => _tile;
@@ -25,8 +29,13 @@ public sealed class Tile : MonoBehaviour
     }
     #endregion
 
-    //Recieving the MeshRender to this mesh
     #region Awake
-    private void Awake()=>_mesh = GetComponent<MeshRenderer>();
+    //Recieving the MeshRender to this mesh and 
+    private void Awake()
+    {
+        _mesh = GetComponent<MeshRenderer>();
+        x = transform.position.x;
+        z = transform.position.z;
+    }
     #endregion
 }

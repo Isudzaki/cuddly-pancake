@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GameTimer : MonoBehaviour
+public sealed class GameTimer : MonoBehaviour
 {
     #region Serialized Vars
     [Header("Game Time")]
@@ -14,8 +14,8 @@ public class GameTimer : MonoBehaviour
     private int timeLeft;
     #endregion
 
-    //Start's the timer
     #region Start
+    //Start's the timer
     private void Start()
     {
         timeLeft = gameTime;

@@ -6,15 +6,21 @@ public sealed class NewRoundSetter : MonoBehaviour
     #region Serialized Vars
     [Header("Desired Color Setter")]
     [SerializeField] private DesiredColorSetter desColorSetter;
+    [Header("Destroy Zone")]
+    [SerializeField] private PlayerDeathZone playerDeathZone;
+    [Header("Player Spawner")]
+    [SerializeField] private PlayerSpawn playerSpawn;
+    [Header("Loose Screen")]
+    [SerializeField] private GameObject looseScreen;
     #endregion
 
-    //Invoking SetTiles void
     #region Start
+    //Invoking SetTiles void
     private void Start() => InvokeRepeating(nameof(SetTiles), 0,10f);
     #endregion
 
-    //Change the tiles color randomly
     #region Set Tiles
+    //Change the tiles color randomly
     private void SetTiles()
     {
         foreach (Tile tile in TilesList.Instance.Tiles)
@@ -24,6 +30,7 @@ public sealed class NewRoundSetter : MonoBehaviour
             tile.transform.position = new Vector3(tilePos.position.x, 0, tilePos.position.z);
             tile.TileColor = ColorDatabase.Colors[Random.Range(0, ColorDatabase.Colors.Length)];
         }
+        CheckPlayer();
         //Checking all tiles for desired color ones
         Invoke(nameof(CheckTiles), 0.01f);
     }
@@ -48,6 +55,20 @@ public sealed class NewRoundSetter : MonoBehaviour
                 }
             }
         }
+    }
+    #endregion
+
+    #region Check Player
+    //Check's if the player is dead and if yes respawn
+    private void CheckPlayer()
+    {
+        if (playerDeathZone.isPlayerDied)
+        {
+            looseScreen.SetActive(false);
+            playerSpawn.RespawnPlayer();
+            playerDeathZone.isPlayerDied = false;
+        }
+
     }
     #endregion
 }

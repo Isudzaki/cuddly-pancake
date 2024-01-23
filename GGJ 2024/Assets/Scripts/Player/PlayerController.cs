@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -42,7 +40,7 @@ public class PlayerController : MonoBehaviour
     #region Update()
     private void Update()
     {
-        //--Get player Input and assign them to the magnitude of the character’s movement multiplied by speed--
+        //--Get player Input and assign them to the magnitude of the character?s movement multiplied by speed--
         Vector3 moveInput = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
         moveVelocity = moveInput.normalized * speed;
         //
@@ -88,7 +86,7 @@ public class PlayerController : MonoBehaviour
     {
         //--Creates a Ray that looks from the camera to the cursor--
         Ray cameraRay = mainCamera.ScreenPointToRay(Input.mousePosition);
-        //Ñreate an invisible plane upon contact with which our player will look at the point of impact
+        //?reate an invisible plane upon contact with which our player will look at the point of impact
         Plane groundPlane = new Plane(Vector3.up, Vector3.zero);
         float rayLenth;
 

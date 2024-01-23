@@ -15,13 +15,13 @@ public sealed class DesiredColorSetter : MonoBehaviour
     [SerializeField] private Image desColorImg;
     #endregion
 
-    //Invoking SetColor void
     #region Start
+    //Invoking SetColor void
     private void Start()=> InvokeRepeating(nameof(SetColor), 0, 10f);
     #endregion
 
-    //Change the desired color randomly
     #region SetColor
+    //Change the desired color randomly
     private void SetColor()
     {
         TileColor desColor = ColorDatabase.Colors[Random.Range(0, ColorDatabase.Colors.Length)];
