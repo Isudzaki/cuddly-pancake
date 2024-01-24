@@ -1,17 +1,23 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
+using DG.Tweening;
 
 public sealed class NewRoundSetter : MonoBehaviour
 {
     #region Serialized Vars
     [Header("Desired Color Setter")]
     [SerializeField] private DesiredColorSetter desColorSetter;
-    [Header("Destroy Zone")]
-    [SerializeField] private PlayerDeathZone playerDeathZone;
+    [Header("Respawn Timer")]
+    [SerializeField] private RespawnTimer respawnTimer;
     [Header("Player Spawner")]
     [SerializeField] private PlayerSpawn playerSpawn;
+    [Header("Item Spawn")]
+    [SerializeField] private ItemSpawn itemSpawn;
     [Header("Loose Screen")]
     [SerializeField] private GameObject looseScreen;
+    [Header("Mixer Groups")]
+    [SerializeField] private AudioMixerGroup[] mixerGroups;
     #endregion
 
     #region Start
@@ -31,6 +37,7 @@ public sealed class NewRoundSetter : MonoBehaviour
             tile.TileColor = ColorDatabase.Colors[Random.Range(0, ColorDatabase.Colors.Length)];
         }
         CheckPlayer();
+        itemSpawn.SpawnItem();
         //Checking all tiles for desired color ones
         Invoke(nameof(CheckTiles), 0.01f);
     }
@@ -62,11 +69,15 @@ public sealed class NewRoundSetter : MonoBehaviour
     //Check's if the player is dead and if yes respawn
     private void CheckPlayer()
     {
-        if (playerDeathZone.isPlayerDied)
+        if (respawnTimer.isPlayerDied)
         {
             looseScreen.SetActive(false);
             playerSpawn.RespawnPlayer();
-            playerDeathZone.isPlayerDied = false;
+            respawnTimer.isPlayerDied = false;
+            for (int i = 0; i < mixerGroups.Length; i++)
+            {
+                mixerGroups[i].audioMixer.DOSetFloat("LowPass", 10000,1);
+            }
         }
 
     }

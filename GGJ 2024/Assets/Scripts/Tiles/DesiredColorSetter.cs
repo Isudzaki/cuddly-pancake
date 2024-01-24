@@ -1,5 +1,6 @@
 using UnityEngine.UI;
 using UnityEngine;
+using DG.Tweening;
 
 public sealed class DesiredColorSetter : MonoBehaviour
 {
@@ -26,7 +27,7 @@ public sealed class DesiredColorSetter : MonoBehaviour
     {
         TileColor desColor = ColorDatabase.Colors[Random.Range(0, ColorDatabase.Colors.Length)];
         desiredColor = desColor.color;
-        desColorImg.color = desiredColor;
+        desColorImg.DOColor(desiredColor,0.75f);
         desiredNum = desColor.num;
         //Repeating function
         Invoke(nameof(SetColor), 10f);

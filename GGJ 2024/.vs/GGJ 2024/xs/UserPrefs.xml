@@ -1,23 +1,29 @@
 ﻿<Properties StartupConfiguration="{323A91DF-0D0F-BBDE-E70A-A35840C5AC90}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PlayerDeathZone.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/RoundSetter/NewRoundSetter.cs">
     <Files>
+      <File FileName="Assets/Scripts/PlayerDeathZone.cs" Line="23" Column="75" />
       <File FileName="Assets/Scripts/ColorDatabase.cs" Line="3" Column="30" />
-      <File FileName="Assets/Scripts/TileColor.cs" Line="6" Column="16" />
-      <File FileName="Assets/Scripts/Tile.cs" Line="34" Column="1" />
-      <File FileName="Assets/Scripts/TilesColorChecker.cs" Line="16" Column="38" />
-      <File FileName="Assets/Scripts/DeleteTiles.cs" Line="3" Column="47" />
-      <File FileName="Assets/Scripts/TilesList.cs" Line="9" Column="45" />
-      <File FileName="Assets/Scripts/NewRoundSetter.cs" Line="13" Column="1" />
-      <File FileName="Assets/Scripts/DesiredColorSetter.cs" Line="24" Column="40" />
-      <File FileName="Assets/Scripts/GameTimer.cs" Line="3" Column="1" />
-      <File FileName="Assets/Scripts/Player/PlayerController.cs" Line="17" Column="59" />
-      <File FileName="Assets/Scripts/Player/PlayerSpawn.cs" Line="16" Column="23" />
-      <File FileName="Assets/Scripts/PlayerDeathZone.cs" Line="16" Column="40" />
+      <File FileName="Assets/Scripts/TileColor.cs" />
+      <File FileName="Assets/Scripts/Tile.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/TilesList.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/NewRoundSetter.cs" Line="79" Column="74" />
+      <File FileName="Assets/Scripts/DesiredColorSetter.cs" Line="30" Column="47" />
+      <File FileName="Assets/Scripts/GameTimer.cs" Line="7" Column="26" />
+      <File FileName="Assets/Scripts/Player/PlayerController.cs" Line="96" Column="51" />
+      <File FileName="Assets/Scripts/Player/PlayerSpawn.cs" Line="24" Column="50" />
+      <File FileName="Assets/Scripts/Item.cs" Line="8" Column="9" />
+      <File FileName="Assets/Scripts/Bomb.cs" Line="5" Column="9" />
+      <File FileName="Assets/Scripts/Player/PlayerGrab.cs" Line="22" Column="31" />
+      <File FileName="Assets/Scripts/ItemSpawn.cs" Line="7" Column="41" />
+      <File FileName="Assets/Scripts/Player/PlayerThrow.cs" Line="27" Column="21" />
+      <File FileName="Assets/Scripts/RespawnTimer.cs" Line="32" Column="45" />
+      <File FileName="Assets/Scripts/DestroyZone/DeleteItems.cs" Line="12" Column="42" />
+      <File FileName="Assets/Scripts/DestroyZone/DeleteTiles.cs" Line="10" Column="26" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="ae68ffc6-a625-4c16-af71-68f29e1fec2a" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="f49e8303-9285-4644-93eb-e7a40c0a95a6" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
