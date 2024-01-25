@@ -26,7 +26,7 @@ public sealed class PlayerDeathZone: MonoBehaviour
             looseScreen.transform.position = new Vector3(Screen.width*2,looseScreenTF.position.y, looseScreenTF.position.z);
             looseScreen.transform.DOLocalMoveX(0, 0.75f).SetEase(Ease.InBounce);
             looseScreen.SetActive(true);
-            respawnTimer.StartTimer();
+            respawnTimer.InvokeTimer();
             for(int i = 0; i < mixerGroups.Length; i++)
             {
                 mixerGroups[i].audioMixer.DOSetFloat("LowPass", 300, 1);

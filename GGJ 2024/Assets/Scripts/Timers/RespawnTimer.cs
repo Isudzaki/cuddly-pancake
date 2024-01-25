@@ -19,9 +19,9 @@ public sealed class RespawnTimer : MonoBehaviour
     private int timeLeft;
     #endregion
 
-    #region Start Timer
+    #region Invoke Timer
     //Start's the timer
-    public void StartTimer()
+    public void InvokeTimer()
     {
         timeLeft = gameTime;
         InvokeRepeating(nameof(MinusTime), 0, 1);

@@ -14,10 +14,10 @@ GameObject:
   - component: {fileID: 832424903343863469}
   - component: {fileID: 712962632764875921}
   - component: {fileID: 5841029727928930181}
-  - component: {fileID: 712731870461983517}
+  - component: {fileID: -4875579728710192552}
   m_Layer: 0
-  m_Name: Trap
-  m_TagString: Untagged
+  m_Name: Shield
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -156,7 +156,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2, y: 2, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &712731870461983517
+--- !u!114 &-4875579728710192552
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -165,6 +165,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 135278269753151910}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb33174c4b86d4e6396da05f4dba111c, type: 3}
+  m_Script: {fileID: 11500000, guid: d644dc59e994549edb38307d90bd8333, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  grabClip: {fileID: 8300000, guid: 09711af5a38324f06a6caa904884c5cd, type: 3}

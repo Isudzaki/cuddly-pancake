@@ -1,18 +1,46 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class StartTimer : MonoBehaviour
+public sealed class StartTimer : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    #region Public Vars
+    [HideInInspector]
+    public bool isTimeOver = false;
+    #endregion
 
-    // Update is called once per frame
-    void Update()
+    #region Serialized Vars
+    [Header("Wait Time")]
+    [SerializeField] private int waitTime;
+    [Header("Time Counter Text")]
+    [SerializeField] private Text timeText;
+    #endregion
+
+    #region Private Vars
+    private int timeLeft;
+    #endregion
+
+    #region Invoke Timer
+    //Start's the timer
+    public void InvokeTimer()
     {
-        
+        timeLeft = waitTime;
+        InvokeRepeating(nameof(MinusTime), 0, 1);
     }
+    #endregion
+
+    #region Timer
+    //Minuses the time and updates time text, if the time ends it will stop the timer
+    private void MinusTime()
+    {
+        timeLeft--;
+        timeText.text = $"{timeLeft} seconds left";
+
+        if (timeLeft == 0)
+        {
+            isTimeOver = true;
+            CancelInvoke(nameof(MinusTime));
+        }
+
+    }
+    #endregion
 }
