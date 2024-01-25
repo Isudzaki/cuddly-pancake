@@ -9,6 +9,7 @@ public sealed class Tile : MonoBehaviour
     #endregion
 
     #region Public Vars
+    [HideInInspector]
     public float x,z;
     #endregion
 
