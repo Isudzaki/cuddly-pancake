@@ -16,9 +16,9 @@ public sealed class DesiredColorSetter : MonoBehaviour
     [SerializeField] private Image desColorImg;
     #endregion
 
-    #region Start
+    #region Start Timer
     //Invoking SetColor void
-    private void Start()=> InvokeRepeating(nameof(SetColor), 0, 10f);
+    public void StartSetting()=> InvokeRepeating(nameof(SetColor), 0, 10f);
     #endregion
 
     #region SetColor

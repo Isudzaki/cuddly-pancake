@@ -20,9 +20,9 @@ public sealed class NewRoundSetter : MonoBehaviour
     [SerializeField] private AudioMixerGroup[] mixerGroups;
     #endregion
 
-    #region Start
+    #region Start Timer
     //Invoking SetTiles void
-    private void Start() => InvokeRepeating(nameof(SetTiles), 0,10f);
+    private void Start() => SetTiles();
     #endregion
 
     #region Set Tiles
@@ -36,6 +36,7 @@ public sealed class NewRoundSetter : MonoBehaviour
             tile.transform.position = new Vector3(tilePos.position.x, 0, tilePos.position.z);
             tile.TileColor = ColorDatabase.Colors[Random.Range(0, ColorDatabase.Colors.Length)];
         }
+        if (StartTimer.Instance.isTimeOver != true) return;
         CheckPlayer();
         itemSpawn.SpawnItem();
         //Checking all tiles for desired color ones
@@ -80,6 +81,13 @@ public sealed class NewRoundSetter : MonoBehaviour
             }
         }
 
+    }
+    #endregion
+
+    #region Start Round
+    public void StartRound()
+    {
+        InvokeRepeating(nameof(SetTiles), 0, 10f);
     }
     #endregion
 }

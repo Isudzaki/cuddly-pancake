@@ -11,14 +11,13 @@ public sealed class PlayerThrow : MonoBehaviour
     [Header("Gravity Angle")]
     [Range(1, 9.8f)]
     [SerializeField] private float gravity = 9.8f;
+    [SerializeField] private float force;
     [Header("Projectile Prefab")]
     [SerializeField] private GameObject bombPrefab;
-    [Header("Projectile Vars")]
-    [SerializeField] private int throwForce;
-    [SerializeField] private int launchForce;
-    [SerializeField] private int projectileSpeed;
     [Header("Projectile Throw Point")]
     [SerializeField] private Transform throwPoint;
+    [Header("Audio")]
+    [SerializeField] private AudioSource throwSource;
     #endregion
 
     #region Public Vars
@@ -33,7 +32,7 @@ public sealed class PlayerThrow : MonoBehaviour
 
     #region Private Vars
     private Vector3 mousePosition;
-    private float distanceToPoint;
+    private int maxThrowDistance = 30;
     #endregion
 
     #region Awake
@@ -68,9 +67,10 @@ public sealed class PlayerThrow : MonoBehaviour
 
         if (Input.GetMouseButtonUp(0))
         {
+            throwSource.Play();
             haveItem = false;
             trajectoryLine.gameObject.SetActive(false);
-            ThrowCore();
+            ThrowProjectile();
         }
     }
     #endregion
@@ -115,40 +115,52 @@ public sealed class PlayerThrow : MonoBehaviour
     }
     #endregion
 
-    #region Throw Core
-    public void ThrowCore()
+    #region Throw Projectile
+    public void ThrowProjectile()
     {
-            if (mousePosition == null) return;
-            bomb.transform.parent = null;
-            Rigidbody bombRb = bomb.GetComponent<Rigidbody>();
-            bombRb.useGravity = true;
-            bombRb.isKinematic = false;
-            // Apply impulse upwards (towards the positive y-axis) to the core
-            bombRb.AddForce(Vector3.up * launchForce * (distanceToPoint * -1 / 45), ForceMode.Impulse);
+        if (PauseCheck.Instance.opened) return;
+        if (bomb == null)
+        {
+            Debug.LogError("Bomb object is null.");
+            return;
+        }
 
-            // Apply additional force in the direction of the player
-            bombRb.AddForce(transform.forward * throwForce * (distanceToPoint * -1 / 45), ForceMode.Impulse);
+        bomb.transform.parent = null;
+        bomb.GetComponent<SphereCollider>().enabled = true;
+        Rigidbody bombRb = bomb.GetComponent<Rigidbody>();
+        bombRb.useGravity = true;
+        bombRb.isKinematic = false;
 
-            // Calculate the direction from the bomb to the target
-            Vector3 direction = (mousePosition - transform.position).normalized;
+        // Calculate the launch direction
+        Vector3 launchDirection = mousePosition - throwPoint.position;
+        launchDirection.y = 0f; // Project the launch direction onto the x-z plane.
 
-            // Apply a force in that direction to propel the bomb
-            if (distanceToPoint * -1 < 40 && distanceToPoint * -1 >= 15)
-                bombRb.AddForce(direction * (projectileSpeed + 4 * (distanceToPoint * -1 / 43)), ForceMode.Impulse);
-            else if (distanceToPoint * -1 < 15 && distanceToPoint * -1 >= 10)
-                bombRb.AddForce(direction * (projectileSpeed + 3 * (distanceToPoint * -1 / 43)), ForceMode.Impulse);
-            else if (distanceToPoint * -1 < 10 && distanceToPoint * -1 >= 5)
-            bombRb.AddForce(direction * (projectileSpeed + 2 * (distanceToPoint * -1 / 43)), ForceMode.Impulse);
-            else if (distanceToPoint * -1 < 5)
-            bombRb.AddForce(direction * (projectileSpeed + 1 * (distanceToPoint * -1 / 43)), ForceMode.Impulse);
-            else
-                bombRb.AddForce(direction * (projectileSpeed + 5 * (distanceToPoint * -1 / 43)), ForceMode.Impulse);
+        // Calculate the distance between throwPoint and mousePosition
+        float distance = Vector3.Distance(throwPoint.position, mousePosition);
 
-            // Apply rotation to the bomb to match the direction of the player
-            bomb.transform.rotation = Quaternion.LookRotation(bombRb.velocity);
-            distanceToPoint = Vector3.Distance(transform.position, mousePosition) * -1;
+        // Adjust the throwing strength based on the distance
+        float adjustedThrowForce = Mathf.Clamp01(distance / maxThrowDistance);
+
+        // Apply force to the bomb using Rigidbody
+        if (bombRb != null)
+        {
+            // Calculate the force based on adjustedThrowForce
+            float totalForce = adjustedThrowForce*force; // Adjust this multiplier based on your needs
+
+            // Apply force to each point along the trajectory
+            for (int i = 0; i < trajectoryLine.positionCount; i++)
+            {
+                Vector3 forceDirection = trajectoryLine.GetPosition(i) - bomb.transform.position;
+                bombRb.AddForce(forceDirection.normalized * totalForce, ForceMode.Impulse);
+            }
+        }
+        else
+        {
+            Debug.LogError("Rigidbody component not found on bombPrefab.");
+        }
     }
     #endregion
+
 
     #region Spawn Bomb
     public void SpawnBomb()

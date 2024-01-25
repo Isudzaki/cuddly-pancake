@@ -14,9 +14,9 @@ public sealed class GameTimer : MonoBehaviour
     private int timeLeft;
     #endregion
 
-    #region Start
+    #region Start Timer
     //Start's the timer
-    private void Start()
+    public void StartTimer()
     {
         timeLeft = gameTime;
         InvokeRepeating(nameof(MinusTime),0, 1);

@@ -7,9 +7,9 @@ public sealed class TilesColorChecker : MonoBehaviour
     [SerializeField] private DesiredColorSetter desColorSetter;
     #endregion
 
-    #region Start
+    #region Start Timer
     //Invoking SetTiles void
-    private void Start()=>Invoke(nameof(CheckTiles), 5f);
+    public void StartCheck()=>Invoke(nameof(CheckTiles), 5f);
     #endregion
 
     #region Check Tiles

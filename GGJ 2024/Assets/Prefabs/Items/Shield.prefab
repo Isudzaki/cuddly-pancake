@@ -169,3 +169,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grabClip: {fileID: 8300000, guid: 09711af5a38324f06a6caa904884c5cd, type: 3}
+  time: 10
+  shieldPrefab: {fileID: 947742123098075520, guid: 06392bfe001a842f99e04de22a2f6d8e,
+    type: 3}

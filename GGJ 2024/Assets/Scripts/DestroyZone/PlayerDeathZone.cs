@@ -11,6 +11,8 @@ public sealed class PlayerDeathZone: MonoBehaviour
     [SerializeField] private RespawnTimer respawnTimer;
     [Header("Mixer Groups")]
     [SerializeField] private AudioMixerGroup[] mixerGroups;
+    [Header("Audio Death")]
+    [SerializeField] private AudioSource deathSource;
     #endregion
 
     #region Trigger Enter
@@ -19,6 +21,7 @@ public sealed class PlayerDeathZone: MonoBehaviour
     {
         if (other.TryGetComponent(out PlayerController playerController))
         {
+            deathSource.Play();
             playerController.enabled = false;
             playerController.GetComponent<PlayerThrow>().haveItem = false;
             Destroy(playerController.GetComponent<PlayerThrow>().bomb);
@@ -29,7 +32,7 @@ public sealed class PlayerDeathZone: MonoBehaviour
             respawnTimer.InvokeTimer();
             for(int i = 0; i < mixerGroups.Length; i++)
             {
-                mixerGroups[i].audioMixer.DOSetFloat("LowPass", 300, 1);
+                mixerGroups[i].audioMixer.DOSetFloat("LowPass", 300, 0.75f);
             }
         }
     }

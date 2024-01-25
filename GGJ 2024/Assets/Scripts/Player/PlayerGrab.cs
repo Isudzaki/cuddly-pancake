@@ -9,7 +9,6 @@ public sealed class PlayerGrab : MonoBehaviour
         if (other.TryGetComponent(out Item item))
         {
             item.Grab();
-            Destroy(item.gameObject);
         }
     }
     #endregion

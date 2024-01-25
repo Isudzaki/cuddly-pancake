@@ -2,10 +2,12 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    #region SerializeField vars
+    #region Serialize Vars
     [Header("Player Settings")]
     [SerializeField] private float speed;
     [SerializeField] private float jumpForce;
+    [Header("Audio")]
+    [SerializeField] private AudioSource footStepSource,jumpSource;
     #endregion
 
     #region System vars
@@ -15,7 +17,7 @@ public class PlayerController : MonoBehaviour
     private Animator animator;
 
     //System
-    [HideInInspector] public static PlayerController instance;
+    [HideInInspector] public static PlayerController Instance;
     private Vector3 moveVelocity;
 
     //Check
@@ -26,7 +28,7 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         //Make an example script for accessing it in other classes
-        instance = this;
+        Instance = this;
     }
     #endregion
 
@@ -42,15 +44,17 @@ public class PlayerController : MonoBehaviour
     #region Update()
     private void Update()
     {
+        Look();
+        if (StartTimer.Instance.isTimeOver != true) return;
         //--Get player Input and assign them to the magnitude of the character?s movement multiplied by speed--
         Vector3 moveInput = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
         moveVelocity = moveInput.normalized * speed;
         animator.SetFloat("Speed", moveInput.magnitude);
+        if (moveInput.magnitude > 0.1f &&(!footStepSource.isPlaying)) footStepSource.Play();
+        if (moveInput.magnitude < 0.1f) footStepSource.Stop();
         //
 
         Jump();
-
-        Look();
     }
     #endregion
 
@@ -81,6 +85,7 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             animator.SetBool("Jump", true);
             isGrounded = false;
+            jumpSource.Play();
         }
     }
     #endregion
@@ -88,6 +93,7 @@ public class PlayerController : MonoBehaviour
     #region Look()
     private void Look()
     {
+        if (PauseCheck.Instance.opened) return;
         //--Creates a Ray that looks from the camera to the cursor--
         Ray cameraRay = mainCamera.ScreenPointToRay(Input.mousePosition);
         //?reate an invisible plane upon contact with which our player will look at the point of impact
