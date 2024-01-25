@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     //Links
     private Rigidbody rb;
     private Camera mainCamera;
+    private Animator animator;
 
     //System
     [HideInInspector] public static PlayerController instance;
@@ -32,6 +33,7 @@ public class PlayerController : MonoBehaviour
     #region Start()
     private void Start()
     {
+        animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         mainCamera = Camera.main;
     }
@@ -43,6 +45,7 @@ public class PlayerController : MonoBehaviour
         //--Get player Input and assign them to the magnitude of the character?s movement multiplied by speed--
         Vector3 moveInput = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
         moveVelocity = moveInput.normalized * speed;
+        animator.SetFloat("Speed", moveInput.magnitude);
         //
 
         Jump();
@@ -76,6 +79,7 @@ public class PlayerController : MonoBehaviour
         {
             //"AddForce" to make player jump and set "isGrounded = false;" to remove double jump
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            animator.SetBool("Jump", true);
             isGrounded = false;
         }
     }
@@ -105,6 +109,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
+            animator.SetBool("Jump", false);
             isGrounded = true;
         }
     }

@@ -26,11 +26,21 @@ public sealed class PlayerThrow : MonoBehaviour
     public bool haveItem;
     [HideInInspector]
     public GameObject bomb;
+
+    [HideInInspector]
+    public static PlayerThrow instance;
     #endregion
 
     #region Private Vars
     private Vector3 mousePosition;
     private float distanceToPoint;
+    #endregion
+
+    #region Awake
+    private void Awake()
+    {
+        instance = this;
+    }
     #endregion
 
     #region Start
