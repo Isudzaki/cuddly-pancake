@@ -1,9 +1,11 @@
-public sealed class Bomb : Item
+public class Bomb : Item
 {
-    #region Start
-    protected override void Start()
+    public override void Grab()
     {
-        
+        PlayerThrow playerThrow = FindFirstObjectByType<PlayerThrow>();
+        if (playerThrow.haveItem) return;
+        base.Grab();
+        playerThrow.SpawnBomb();
+        playerThrow.haveItem = true;
     }
-    #endregion
 }

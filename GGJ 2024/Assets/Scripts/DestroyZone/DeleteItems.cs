@@ -6,12 +6,10 @@ public sealed class DeleteItems : MonoBehaviour
     //Set's the trigger zone opportunity to destroy items
     private void OnTriggerEnter(Collider other)
     {
-        {
-            if (other.TryGetComponent(out Item item))
+            if (other.CompareTag("Item"))
             {
-                Destroy(item.gameObject);
+                Destroy(other.gameObject);
             }
-        }
     }
     #endregion
 }

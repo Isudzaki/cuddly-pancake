@@ -17,10 +17,9 @@ public sealed class PlayerGrab : MonoBehaviour
     #region Trigger Enter
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent(out Item item) && !playerThrow.haveItem)
+        if (other.TryGetComponent(out Item item))
         {
-            playerThrow.haveItem=true;
-            playerThrow.SpawnBomb();
+            item.Grab();
             Destroy(item.gameObject);
         }
     }
