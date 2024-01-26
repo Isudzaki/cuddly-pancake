@@ -16,9 +16,9 @@ public sealed class StartTimer : MonoBehaviour
     [Header("Time Counter Text")]
     [SerializeField] private Text timeText;
     [Header("Desired Color Image")]
-    [SerializeField] private Transform desiredColorImage;
+    [SerializeField] private Image desiredColorImage;
     [Header("Game Timer Text")]
-    [SerializeField] private Transform gameTimerTextTF;
+    [SerializeField] private Text gameTimerTextTF;
     [Header("Managers")]
     [SerializeField] private NewRoundSetter newRoundSetter;
     [SerializeField] private DesiredColorSetter desiredColorSetter;
@@ -53,13 +53,13 @@ public sealed class StartTimer : MonoBehaviour
         if (timeLeft == 0)
         {
             isTimeOver = true;           
-            timeText.gameObject.SetActive(false);
             newRoundSetter.StartRound();
             tilesColorChecker.StartCheck();
             desiredColorSetter.StartSetting();
             gameTimer.StartTimer();
-            desiredColorImage.DOLocalMoveX(Screen.width-13, 0.75f);
-            gameTimerTextTF.DOLocalMoveY(Screen.height, 0.75f);
+            desiredColorImage.DOFade(1, 0.75f);
+            gameTimerTextTF.DOFade(1, 0.75f);
+            timeText.transform.DOLocalMoveY(Screen.height + 400,0.75f);
             CancelInvoke(nameof(MinusTime));
         }
     }

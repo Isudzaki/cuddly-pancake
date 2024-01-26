@@ -3761,3 +3761,85 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:scripting/monoscript/fileName/Tile.cs: e6480a408e34695897b31a69fad2b871 -> a94101d916c115d73aff3567a86e16d8
   custom:scripting/monoscript/fileName/DesiredColorSetter.cs: 07ec5b70a96244a141c388dd5ca82266 -> 5ec0a19b2a845b056dbb47ca4da917d3
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+Thread 0x16bf6f000 may have been prematurely finalized
+- Loaded All Assemblies, in  0.444 seconds
+Refreshing native plugins compatible for Editor in 1.59 ms, found 2 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for iOS target not found
+Native extension for Android target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.900 seconds
+Domain Reload Profiling: 1344ms
+	BeginReloadAssembly (159ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (3ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (70ms)
+	RebuildCommonClasses (24ms)
+	RebuildNativeTypeToScriptingClass (8ms)
+	initialDomainReloadingComplete (15ms)
+	LoadAllAssembliesAndSetupDomain (237ms)
+		LoadAssemblies (279ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (20ms)
+			TypeCache.Refresh (10ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (8ms)
+	FinalizeReload (900ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (267ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (20ms)
+			SetLoadedEditorAssemblies (2ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (37ms)
+			ProcessInitializeOnLoadAttributes (173ms)
+			ProcessInitializeOnLoadMethodAttributes (35ms)
+			AfterProcessingInitializeOnLoad (1ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (9ms)
+Refreshing native plugins compatible for Editor in 1.13 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5022 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 55 unused Assets / (0.8 MB). Loaded Objects now: 6318.
+Memory consumption went from 454.1 MB to 453.4 MB.
+Total: 3.002791 ms (FindLiveObjects: 0.229417 ms CreateObjectMapping: 0.069250 ms MarkObjects: 2.406791 ms  DeleteObjects: 0.296750 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:scripting/monoscript/fileName/TilesList.cs: 07977e5b6e000331d90c09d7a1a31b15 -> 360b27ef239252f58cb2528e3a966b3f
+  custom:scripting/monoscript/fileName/DeleteTiles.cs: 2b81a70ffc766c5af4ad88937512cba3 -> 8c31483ff8680ff4c2c9a9ccf44799a8
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:scripting/monoscript/fileName/GameTimer.cs: 597adb2d40d727b3faecea63fd0da384 -> 5f16f02791a2cec9842e09d157105dbe
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:scripting/monoscript/fileName/AudioChange.cs: b1f3ae54a678a6d0f5015b4d2e79aba5 -> e103db3c314fc79b4851d6cff42e3619
+  custom:CustomObjectIndexerAttribute: a3ef5dd2817f97addfee359851a9dba5 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:scripting/monoscript/fileName/NewRoundSetter.cs: aec738b580998b093d945c9f04c5d3f8 -> 824dd534fd1b4bbfb4f45f8ca8b8c581
+  custom:scripting/monoscript/fileName/TileColor.cs: 973fd0795692030317aa45c4f75f20e6 -> ffa64c2bd10256b0e31cf3f1492bb209
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:scripting/monoscript/fileName/TilesColorChecker.cs: fe5d86f4a6541933fac280f53425defd -> 3f4be6117865e27b8fce8a9470ace00a
+  custom:scripting/monoscript/fileName/ColorDatabase.cs: 622d1d31dd12cb510830ba537839f839 -> 8c3f1ca2fed4bb266cc71709ffeb93cf
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: 3918e3fc78b5a79bad01e8451be0beb8 -> 
+  custom:scripting/monoscript/fileName/PlayerDeathZone.cs: 91329b3e682ba5c2f8d79abc78f67f06 -> 9d2f2456e968800c37d5d4c1b99a49e7
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/Shield.cs: ffd2104d84a794b025380a0ade83da6f -> 4af0beec354d9d8d32764d4d8520b96f
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/Tile.cs: e6480a408e34695897b31a69fad2b871 -> a94101d916c115d73aff3567a86e16d8
+  custom:scripting/monoscript/fileName/DesiredColorSetter.cs: 07ec5b70a96244a141c388dd5ca82266 -> 5ec0a19b2a845b056dbb47ca4da917d3

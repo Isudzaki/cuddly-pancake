@@ -18,17 +18,16 @@ public sealed class NewRoundSetter : MonoBehaviour
     [SerializeField] private GameObject looseScreen;
     [Header("Mixer Groups")]
     [SerializeField] private AudioMixerGroup[] mixerGroups;
-    #endregion
-
-    #region Start Timer
-    //Invoking SetTiles void
-    private void Start() => SetTiles();
+    [Header("Audio")]
+    [SerializeField] private AudioSource newRoundAudio;
     #endregion
 
     #region Set Tiles
     //Change the tiles color randomly
     private void SetTiles()
     {
+        newRoundAudio.Play();
+        if (StartTimer.Instance.isTimeOver != true) return;
         foreach (Tile tile in TilesList.Instance.Tiles)
         {
             Transform tilePos = tile.transform;
@@ -36,7 +35,6 @@ public sealed class NewRoundSetter : MonoBehaviour
             tile.transform.position = new Vector3(tilePos.position.x, 0, tilePos.position.z);
             tile.TileColor = ColorDatabase.Colors[Random.Range(0, ColorDatabase.Colors.Length)];
         }
-        if (StartTimer.Instance.isTimeOver != true) return;
         CheckPlayer();
         itemSpawn.SpawnItem();
         //Checking all tiles for desired color ones

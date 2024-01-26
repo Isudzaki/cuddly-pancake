@@ -18,6 +18,8 @@ public class PlayerController : MonoBehaviour
 
     //System
     [HideInInspector] public static PlayerController Instance;
+    [HideInInspector]
+    public bool haveItem;
     private Vector3 moveVelocity;
 
     //Check
@@ -52,9 +54,8 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("Speed", moveInput.magnitude);
         if (moveInput.magnitude > 0.1f &&(!footStepSource.isPlaying)) footStepSource.Play();
         if (moveInput.magnitude < 0.1f) footStepSource.Stop();
-        //
-
         Jump();
+        //
     }
     #endregion
 

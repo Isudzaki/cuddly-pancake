@@ -22,12 +22,10 @@ public sealed class PlayerThrow : MonoBehaviour
 
     #region Public Vars
     [HideInInspector]
-    public bool haveItem;
-    [HideInInspector]
     public GameObject bomb;
 
     [HideInInspector]
-    public static PlayerThrow instance;
+    public static PlayerThrow Instance;
     #endregion
 
     #region Private Vars
@@ -38,7 +36,7 @@ public sealed class PlayerThrow : MonoBehaviour
     #region Awake
     private void Awake()
     {
-        instance = this;
+        Instance = this;
     }
     #endregion
 
@@ -53,7 +51,7 @@ public sealed class PlayerThrow : MonoBehaviour
     #region Update
     private void Update()
     {
-        if (!haveItem) return;
+        if (!PlayerController.Instance.haveItem || PlayerBallon.Instance.haveBall) return;
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -68,7 +66,7 @@ public sealed class PlayerThrow : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
             throwSource.Play();
-            haveItem = false;
+            PlayerController.Instance.haveItem = false;
             trajectoryLine.gameObject.SetActive(false);
             ThrowProjectile();
         }

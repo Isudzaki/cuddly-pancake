@@ -35,6 +35,7 @@ public class BombProjectile : MonoBehaviour
         }
         audioSource = GameObject.Find("ExplodeAudio").GetComponent<AudioSource>();
         audioSource.Play();
+        PlayerLaughIndicator.Instance.Score+=100;
         Destroy(gameObject);
     }
     #endregion

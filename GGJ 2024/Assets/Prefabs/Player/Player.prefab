@@ -259,7 +259,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: ca7317399ce484e29a2b7a6824de4256, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.15
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -572,7 +572,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 811888cc307834876b8a0cffbc7026ae, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.2
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -911,7 +911,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 3666ec77afc014f83a371cfbc8de4394, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.05
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1164,6 +1164,7 @@ MonoBehaviour:
   jumpForce: 4
   footStepSource: {fileID: 4861668061982055378}
   jumpSource: {fileID: 5358431515238706422}
+  haveItem: 0
 --- !u!114 &3611003648708640740
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1212,7 +1213,6 @@ MonoBehaviour:
     type: 3}
   throwPoint: {fileID: 7518748211816250316}
   throwSource: {fileID: 3837013924723114360}
-  haveItem: 0
   bomb: {fileID: 0}
 --- !u!33 &3356026077428527110
 MeshFilter:
@@ -1324,7 +1324,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7518748211816250316}
   m_Layer: 0
-  m_Name: ThrowPoint
+  m_Name: ItemPoint
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -1339,7 +1339,7 @@ Transform:
   m_GameObject: {fileID: 8769786525365889914}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.869, y: 0, z: 0.264}
+  m_LocalPosition: {x: 0.9, y: 0, z: 0.264}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

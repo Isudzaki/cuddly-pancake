@@ -23,7 +23,7 @@ public sealed class PlayerDeathZone: MonoBehaviour
         {
             deathSource.Play();
             playerController.enabled = false;
-            playerController.GetComponent<PlayerThrow>().haveItem = false;
+            playerController.GetComponent<PlayerController>().haveItem = false;
             Destroy(playerController.GetComponent<PlayerThrow>().bomb);
             Transform looseScreenTF = looseScreen.transform;
             looseScreen.transform.position = new Vector3(Screen.width*2,looseScreenTF.position.y, looseScreenTF.position.z);
@@ -34,6 +34,7 @@ public sealed class PlayerDeathZone: MonoBehaviour
             {
                 mixerGroups[i].audioMixer.DOSetFloat("LowPass", 300, 0.75f);
             }
+            PlayerLaughIndicator.Instance.Score -= PlayerLaughIndicator.Instance.Score/2;
         }
     }
     #endregion

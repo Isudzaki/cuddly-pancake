@@ -1,32 +1,36 @@
 ﻿<Properties StartupConfiguration="{323A91DF-0D0F-BBDE-E70A-A35840C5AC90}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Timers/GameTimer.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Items/Ballon.cs">
     <Files>
-      <File FileName="Assets/Scripts/Player/PlayerController.cs" Line="47" Column="60" />
-      <File FileName="Assets/Scripts/Player/PlayerSpawn.cs" Line="13" Column="18" />
-      <File FileName="Assets/Scripts/Player/PlayerThrow.cs" Line="121" Column="48" />
-      <File FileName="Assets/Scripts/DestroyZone/DeleteTiles.cs" Line="16" Column="69" />
-      <File FileName="Assets/Scripts/Timers/StartTimer.cs" Line="21" Column="50" />
-      <File FileName="Assets/Scripts/DestroyZone/PlayerDeathZone.cs" Line="14" Column="28" />
-      <File FileName="Assets/Scripts/Items/Shield.cs" Line="13" Column="1" />
-      <File FileName="Assets/Scripts/Items/Item.cs" Line="16" Column="31" />
-      <File FileName="Assets/Scripts/Items/Bomb.cs" Line="6" Column="51" />
-      <File FileName="Assets/Scripts/Items/BombProjectile.cs" Line="8" Column="40" />
-      <File FileName="Assets/Scripts/Player/PlayerGrab.cs" Line="11" Column="25" />
-      <File FileName="Assets/Scripts/Tiles/Tile.cs" Line="12" Column="21" />
-      <File FileName="Assets/Scripts/Player/PlayerShield.cs" Line="26" Column="55" />
-      <File FileName="Assets/Scripts/Audio/AudioChange.cs" Line="20" Column="15" />
-      <File FileName="Assets/Scripts/Pause/PauseCheck.cs" Line="34" Column="115" />
-      <File FileName="Assets/Scripts/Timers/RespawnTimer.cs" Line="8" Column="38" />
-      <File FileName="Assets/Scripts/Items/ItemSpawn.cs" Line="13" Column="23" />
-      <File FileName="Assets/Scripts/RoundSetter/NewRoundSetter.cs" Line="87" Column="24" />
-      <File FileName="Assets/Scripts/Tiles/TilesColorChecker.cs" Line="13" Column="15" />
-      <File FileName="Assets/Scripts/Tiles/DesiredColorSetter.cs" Line="25" Column="26" />
-      <File FileName="Assets/Scripts/Timers/GameTimer.cs" Line="21" Column="29" />
+      <File FileName="Assets/Scripts/Player/PlayerController.cs" Line="86" Column="68" />
+      <File FileName="Assets/Scripts/Player/PlayerSpawn.cs" Line="9" Column="22" />
+      <File FileName="Assets/Scripts/Player/PlayerThrow.cs" Line="54" Column="52" />
+      <File FileName="Assets/Scripts/DestroyZone/DeleteTiles.cs" Line="19" Column="51" />
+      <File FileName="Assets/Scripts/Timers/StartTimer.cs" Line="16" Column="34" />
+      <File FileName="Assets/Scripts/DestroyZone/PlayerDeathZone.cs" Line="26" Column="59" />
+      <File FileName="Assets/Scripts/Items/Shield.cs" Line="8" Column="34" />
+      <File FileName="Assets/Scripts/Items/Item.cs" />
+      <File FileName="Assets/Scripts/Items/Bomb.cs" Line="9" Column="25" />
+      <File FileName="Assets/Scripts/Items/BombProjectile.cs" Line="37" Column="28" />
+      <File FileName="Assets/Scripts/Player/PlayerGrab.cs" />
+      <File FileName="Assets/Scripts/Tiles/Tile.cs" />
+      <File FileName="Assets/Scripts/Player/PlayerShield.cs" Line="11" Column="28" />
+      <File FileName="Assets/Scripts/Audio/AudioChange.cs" Line="25" Column="31" />
+      <File FileName="Assets/Scripts/Pause/PauseCheck.cs" />
+      <File FileName="Assets/Scripts/Timers/RespawnTimer.cs" />
+      <File FileName="Assets/Scripts/Items/ItemSpawn.cs" />
+      <File FileName="Assets/Scripts/RoundSetter/NewRoundSetter.cs" Line="29" Column="30" />
+      <File FileName="Assets/Scripts/Tiles/TilesColorChecker.cs" Line="27" Column="44" />
+      <File FileName="Assets/Scripts/Tiles/DesiredColorSetter.cs" Line="19" Column="24" />
+      <File FileName="Assets/Scripts/Timers/GameTimer.cs" Line="15" Column="56" />
+      <File FileName="Assets/Scripts/Laugh/LaughtIndicator.cs" Line="17" Column="41" />
+      <File FileName="Assets/Scripts/Items/Ball.cs" Line="9" Column="32" />
+      <File FileName="Assets/Scripts/Player/PlayerBall.cs" Line="54" Column="58" />
+      <File FileName="Assets/Scripts/Items/Ballon.cs" Line="4" Column="23" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="90a97d1f-8753-49d2-b994-b10aabd5c24f" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="f74d6554-d63b-4dff-9cde-90e05181815c" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
