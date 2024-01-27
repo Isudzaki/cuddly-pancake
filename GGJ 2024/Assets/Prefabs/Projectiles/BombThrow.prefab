@@ -146,5 +146,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80255d82a6ecc4277b7a2e3bfcc21b03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activateClip: {fileID: 8300000, guid: 5ac48cf76c0b54c67812cf2e359afe06, type: 3}
   radius: 5
   force: 150

@@ -6,6 +6,8 @@ public class PlayerController : MonoBehaviour
     [Header("Player Settings")]
     [SerializeField] private float speed;
     [SerializeField] private float jumpForce;
+    [HideInInspector]
+    public bool isFreezed;
     [Header("Audio")]
     [SerializeField] private AudioSource footStepSource,jumpSource;
     #endregion
@@ -47,7 +49,7 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         Look();
-        if (StartTimer.Instance.isTimeOver != true) return;
+        if (StartTimer.Instance.isTimeOver != true || PlayerDance.Instance.isDancing || isFreezed) return;
         //--Get player Input and assign them to the magnitude of the character?s movement multiplied by speed--
         Vector3 moveInput = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
         moveVelocity = moveInput.normalized * speed;
@@ -62,6 +64,7 @@ public class PlayerController : MonoBehaviour
     #region FixedUpdate()
     private void FixedUpdate()
     {
+        if (StartTimer.Instance.isTimeOver != true || PlayerDance.Instance.isDancing || isFreezed) return;
         Move();
     }
     #endregion

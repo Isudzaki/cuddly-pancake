@@ -10,6 +10,7 @@ public sealed class ItemSpawn : MonoBehaviour
     #endregion
 
     #region Spawn Item
+    //Random spawns items in different location
     public void SpawnItem()
     {
         int count = Random.Range(1, 4);

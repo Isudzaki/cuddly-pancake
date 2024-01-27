@@ -31,7 +31,7 @@ public class PauseCheck : MonoBehaviour
     #region Update
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && !respawnTimer.isPlayerDied && StartTimer.Instance.isTimeOver==true)
+        if (Input.GetKeyDown(KeyCode.Escape) && !respawnTimer.canRespawn && StartTimer.Instance.isTimeOver==true)
             Check();
     }
     #endregion

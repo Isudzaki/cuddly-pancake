@@ -14,8 +14,13 @@ public class AudioChange : MonoBehaviour
     #region Start
     private void Start()
     {
-        MusicChange();
-        SoundsChange();
+        float musicValue;
+        musicMixer.GetFloat("Volume",out musicValue);
+        musicSlider.value = musicValue;
+
+        float soundsValue;
+        soundsMixer.GetFloat("Volume", out soundsValue);
+        soundsSlider.value = soundsValue;
     }
     #endregion
 

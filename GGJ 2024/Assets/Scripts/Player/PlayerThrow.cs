@@ -13,7 +13,7 @@ public sealed class PlayerThrow : MonoBehaviour
     [SerializeField] private float gravity = 9.8f;
     [SerializeField] private float force;
     [Header("Projectile Prefab")]
-    [SerializeField] private GameObject bombPrefab;
+    [SerializeField] private GameObject bombPrefab,bananaPrefab;
     [Header("Projectile Throw Point")]
     [SerializeField] private Transform throwPoint;
     [Header("Audio")]
@@ -22,8 +22,7 @@ public sealed class PlayerThrow : MonoBehaviour
 
     #region Public Vars
     [HideInInspector]
-    public GameObject bomb;
-
+    public GameObject obj;
     [HideInInspector]
     public static PlayerThrow Instance;
     #endregion
@@ -51,7 +50,7 @@ public sealed class PlayerThrow : MonoBehaviour
     #region Update
     private void Update()
     {
-        if (!PlayerController.Instance.haveItem || PlayerBallon.Instance.haveBall) return;
+        if (!PlayerController.Instance.haveItem || PlayerBallon.Instance.haveBall || PlayerDance.Instance.isDancing || PauseCheck.Instance.opened || PlayerController.Instance.isFreezed) return;
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -116,18 +115,17 @@ public sealed class PlayerThrow : MonoBehaviour
     #region Throw Projectile
     public void ThrowProjectile()
     {
-        if (PauseCheck.Instance.opened) return;
-        if (bomb == null)
+        if (obj == null)
         {
-            Debug.LogError("Bomb object is null.");
+            Debug.LogError("Object is null.");
             return;
         }
 
-        bomb.transform.parent = null;
-        bomb.GetComponent<SphereCollider>().enabled = true;
-        Rigidbody bombRb = bomb.GetComponent<Rigidbody>();
-        bombRb.useGravity = true;
-        bombRb.isKinematic = false;
+        obj.transform.parent = null;
+        obj.GetComponent<Collider>().enabled = true;
+        Rigidbody objRb = obj.GetComponent<Rigidbody>();
+        objRb.useGravity = true;
+        objRb.isKinematic = false;
 
         // Calculate the launch direction
         Vector3 launchDirection = mousePosition - throwPoint.position;
@@ -140,7 +138,7 @@ public sealed class PlayerThrow : MonoBehaviour
         float adjustedThrowForce = Mathf.Clamp01(distance / maxThrowDistance);
 
         // Apply force to the bomb using Rigidbody
-        if (bombRb != null)
+        if (objRb != null)
         {
             // Calculate the force based on adjustedThrowForce
             float totalForce = adjustedThrowForce*force; // Adjust this multiplier based on your needs
@@ -148,13 +146,13 @@ public sealed class PlayerThrow : MonoBehaviour
             // Apply force to each point along the trajectory
             for (int i = 0; i < trajectoryLine.positionCount; i++)
             {
-                Vector3 forceDirection = trajectoryLine.GetPosition(i) - bomb.transform.position;
-                bombRb.AddForce(forceDirection.normalized * totalForce, ForceMode.Impulse);
+                Vector3 forceDirection = trajectoryLine.GetPosition(i) - obj.transform.position;
+                objRb.AddForce(forceDirection.normalized * totalForce, ForceMode.Impulse);
             }
         }
         else
         {
-            Debug.LogError("Rigidbody component not found on bombPrefab.");
+            Debug.LogError("Rigidbody component not found on objPrefab.");
         }
     }
     #endregion
@@ -163,8 +161,16 @@ public sealed class PlayerThrow : MonoBehaviour
     #region Spawn Bomb
     public void SpawnBomb()
     {
-        bomb = Instantiate(bombPrefab, throwPoint.position, Quaternion.identity);
-        bomb.transform.SetParent(throwPoint);
+        obj = Instantiate(bombPrefab, throwPoint.position, Quaternion.identity);
+        obj.transform.SetParent(throwPoint);
+    }
+    #endregion
+
+    #region Spawn Banana
+    public void SpawnBanana()
+    {
+        obj = Instantiate(bananaPrefab, throwPoint.position, Quaternion.identity);
+        obj.transform.SetParent(throwPoint);
     }
     #endregion
 }

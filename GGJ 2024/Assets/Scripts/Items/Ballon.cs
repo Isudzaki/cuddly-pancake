@@ -1,4 +1,4 @@
-public class Ballon : Item
+public sealed class Ballon : Item
 {
     #region Grab
     public override void Grab()

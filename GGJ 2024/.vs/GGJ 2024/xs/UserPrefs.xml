@@ -1,36 +1,40 @@
 ﻿<Properties StartupConfiguration="{323A91DF-0D0F-BBDE-E70A-A35840C5AC90}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Items/Ballon.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Player/PlayerBallon.cs">
     <Files>
-      <File FileName="Assets/Scripts/Player/PlayerController.cs" Line="86" Column="68" />
-      <File FileName="Assets/Scripts/Player/PlayerSpawn.cs" Line="9" Column="22" />
-      <File FileName="Assets/Scripts/Player/PlayerThrow.cs" Line="54" Column="52" />
-      <File FileName="Assets/Scripts/DestroyZone/DeleteTiles.cs" Line="19" Column="51" />
-      <File FileName="Assets/Scripts/Timers/StartTimer.cs" Line="16" Column="34" />
-      <File FileName="Assets/Scripts/DestroyZone/PlayerDeathZone.cs" Line="26" Column="59" />
-      <File FileName="Assets/Scripts/Items/Shield.cs" Line="8" Column="34" />
+      <File FileName="Assets/Scripts/Items/Projectiles/Projectile.cs" Line="26" Column="15" />
+      <File FileName="Assets/Scripts/Player/PlayerController.cs" Line="67" Column="107" />
+      <File FileName="Assets/Scripts/Player/PlayerSpawn.cs" />
+      <File FileName="Assets/Scripts/Player/PlayerThrow.cs" Line="173" Column="39" />
+      <File FileName="Assets/Scripts/DestroyZone/DeleteTiles.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Timers/StartTimer.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/DestroyZone/PlayerDeathZone.cs" Line="33" Column="56" />
+      <File FileName="Assets/Scripts/Items/Shield.cs" />
       <File FileName="Assets/Scripts/Items/Item.cs" />
-      <File FileName="Assets/Scripts/Items/Bomb.cs" Line="9" Column="25" />
-      <File FileName="Assets/Scripts/Items/BombProjectile.cs" Line="37" Column="28" />
+      <File FileName="Assets/Scripts/Items/Bomb.cs" Line="12" Column="15" />
       <File FileName="Assets/Scripts/Player/PlayerGrab.cs" />
       <File FileName="Assets/Scripts/Tiles/Tile.cs" />
-      <File FileName="Assets/Scripts/Player/PlayerShield.cs" Line="11" Column="28" />
-      <File FileName="Assets/Scripts/Audio/AudioChange.cs" Line="25" Column="31" />
+      <File FileName="Assets/Scripts/Player/PlayerShield.cs" />
+      <File FileName="Assets/Scripts/Audio/AudioChange.cs" />
       <File FileName="Assets/Scripts/Pause/PauseCheck.cs" />
       <File FileName="Assets/Scripts/Timers/RespawnTimer.cs" />
       <File FileName="Assets/Scripts/Items/ItemSpawn.cs" />
-      <File FileName="Assets/Scripts/RoundSetter/NewRoundSetter.cs" Line="29" Column="30" />
-      <File FileName="Assets/Scripts/Tiles/TilesColorChecker.cs" Line="27" Column="44" />
-      <File FileName="Assets/Scripts/Tiles/DesiredColorSetter.cs" Line="19" Column="24" />
-      <File FileName="Assets/Scripts/Timers/GameTimer.cs" Line="15" Column="56" />
-      <File FileName="Assets/Scripts/Laugh/LaughtIndicator.cs" Line="17" Column="41" />
-      <File FileName="Assets/Scripts/Items/Ball.cs" Line="9" Column="32" />
-      <File FileName="Assets/Scripts/Player/PlayerBall.cs" Line="54" Column="58" />
-      <File FileName="Assets/Scripts/Items/Ballon.cs" Line="4" Column="23" />
+      <File FileName="Assets/Scripts/RoundSetter/NewRoundSetter.cs" />
+      <File FileName="Assets/Scripts/Tiles/TilesColorChecker.cs" Line="39" Column="41" />
+      <File FileName="Assets/Scripts/Tiles/DesiredColorSetter.cs" />
+      <File FileName="Assets/Scripts/Timers/GameTimer.cs" Line="48" Column="34" />
+      <File FileName="Assets/Scripts/Items/Ballon.cs" Line="9" Column="36" />
+      <File FileName="Assets/Scripts/Player/PlayerDance.cs" Line="23" Column="48" />
+      <File FileName="Assets/Scripts/Items/Projectiles/BombProjectile.cs" Line="27" Column="61" />
+      <File FileName="Assets/Scripts/Items/Projectiles/BananaProjectile.cs" Line="7" Column="31" />
+      <File FileName="Assets/Scripts/Laugh/PlayerLaughIndicator.cs" Line="25" Column="1" />
+      <File FileName="Assets/Scripts/Items/Banana.cs" Line="9" Column="51" />
+      <File FileName="Assets/Scripts/GameRestart/RestartGame.cs" Line="5" Column="25" />
+      <File FileName="Assets/Scripts/Player/PlayerBallon.cs" Line="43" Column="45" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="f74d6554-d63b-4dff-9cde-90e05181815c" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="761f0416-2ad7-47ab-87a5-a5d9ea4ce469" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -5,7 +5,7 @@ public sealed class RespawnTimer : MonoBehaviour
 {
     #region Public Vars
     [HideInInspector]
-    public bool isPlayerDied = false;
+    public bool canRespawn = false;
     #endregion
 
     #region Serialized Vars
@@ -37,7 +37,7 @@ public sealed class RespawnTimer : MonoBehaviour
 
         if (timeLeft == 0)
         {
-            isPlayerDied = true;
+            canRespawn = true;
             timeText.text = "Wait the next round";
             CancelInvoke(nameof(MinusTime));
         }

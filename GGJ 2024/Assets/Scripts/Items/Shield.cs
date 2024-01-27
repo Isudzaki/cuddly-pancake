@@ -1,4 +1,4 @@
-public class Shield : Item
+public sealed class Shield : Item
 {
     #region Grab
     public override void Grab()

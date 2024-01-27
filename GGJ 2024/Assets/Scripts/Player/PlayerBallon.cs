@@ -40,7 +40,7 @@ public class PlayerBallon : MonoBehaviour
     public void SpawnBall()
     {
         _ball = Instantiate(ballPrefab, new Vector3(itemPoint.position.x, itemPoint.position.y+0.3f, itemPoint.position.z), Quaternion.identity);
-        _ball.transform.SetParent(PlayerController.Instance.transform);
+        _ball.transform.SetParent(GameObject.Find("ItemPoint").transform);
         rb.mass = 0.7f;
         haveBall = true;
         Invoke(nameof(DestroyBall), time);

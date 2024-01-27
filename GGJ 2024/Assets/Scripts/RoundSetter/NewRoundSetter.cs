@@ -24,7 +24,7 @@ public sealed class NewRoundSetter : MonoBehaviour
 
     #region Set Tiles
     //Change the tiles color randomly
-    private void SetTiles()
+    public void SetTiles()
     {
         newRoundAudio.Play();
         if (StartTimer.Instance.isTimeOver != true) return;
@@ -38,7 +38,7 @@ public sealed class NewRoundSetter : MonoBehaviour
         CheckPlayer();
         itemSpawn.SpawnItem();
         //Checking all tiles for desired color ones
-        Invoke(nameof(CheckTiles), 0.01f);
+        Invoke(nameof(CheckTiles), 0.05f);
     }
     #endregion
 
@@ -68,11 +68,11 @@ public sealed class NewRoundSetter : MonoBehaviour
     //Check's if the player is dead and if yes respawn
     private void CheckPlayer()
     {
-        if (respawnTimer.isPlayerDied)
+        if (respawnTimer.canRespawn)
         {
             looseScreen.SetActive(false);
             playerSpawn.RespawnPlayer();
-            respawnTimer.isPlayerDied = false;
+            respawnTimer.canRespawn = false;
             for (int i = 0; i < mixerGroups.Length; i++)
             {
                 mixerGroups[i].audioMixer.DOSetFloat("LowPass", 10000,1);

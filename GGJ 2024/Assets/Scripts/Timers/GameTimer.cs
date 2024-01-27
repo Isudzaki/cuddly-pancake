@@ -11,6 +11,9 @@ public sealed class GameTimer : MonoBehaviour
     [SerializeField] private Text timeText;
     [Header("End Screen")]
     [SerializeField] private GameObject endScreen;
+    [Header("Managers")]
+    [SerializeField] private RespawnTimer respawnTimer;
+    [SerializeField] private NewRoundSetter newRoundSetter;
     [Header("Audio")]
     [SerializeField] private AudioSource gameEndSource;
     #endregion
@@ -37,6 +40,8 @@ public sealed class GameTimer : MonoBehaviour
         int minutes = timeLeft / 60;
         int seconds = timeLeft - (minutes * 60);
         timeText.text = minutes.ToString("D2") + ":" + seconds.ToString("D2");
+        if (timeLeft == 60)
+            timeText.DOColor(Color.red, 0.5f);
         if (timeLeft == 0)
         {
             CancelInvoke(nameof(MinusTime));
@@ -44,6 +49,8 @@ public sealed class GameTimer : MonoBehaviour
             endScreen.SetActive(true);
             endScreen.transform.DOScale(new Vector3(1, 1, 1),0.5f);
             gameEndSource.Play();
+            respawnTimer.canRespawn = false;
+            newRoundSetter.SetTiles();
             Invoke(nameof(PauseGame), 0.5f);
         }
     }

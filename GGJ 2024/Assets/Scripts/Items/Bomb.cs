@@ -1,4 +1,4 @@
-public class Bomb : Item
+public sealed class Bomb : Item
 {
     #region Grab
     public override void Grab()
