@@ -9,11 +9,20 @@ public sealed class DesiredColorSetter : MonoBehaviour
     public Color desiredColor;
     [HideInInspector]
     public int desiredNum;
+    [HideInInspector]
+    public static DesiredColorSetter instance;
     #endregion
 
     #region Serialized Vars
     [Header("Desired Color Image")]
     [SerializeField] private Image desColorImg;
+    #endregion
+
+    #region Awake
+    private void Awake()
+    {
+        instance = this;
+    }
     #endregion
 
     #region Start Timer

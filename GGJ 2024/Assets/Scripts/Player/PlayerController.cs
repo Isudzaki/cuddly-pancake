@@ -8,15 +8,18 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float jumpForce;
     [HideInInspector]
     public bool isFreezed;
+
     [Header("Audio")]
     [SerializeField] private AudioSource footStepSource,jumpSource;
+
+    [Header("Links")]
+    [SerializeField] private Animator animator;
     #endregion
 
     #region System vars
     //Links
     private Rigidbody rb;
     private Camera mainCamera;
-    private Animator animator;
 
     //System
     [HideInInspector] public static PlayerController Instance;
@@ -39,7 +42,6 @@ public class PlayerController : MonoBehaviour
     #region Start()
     private void Start()
     {
-        animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         mainCamera = Camera.main;
     }
@@ -87,7 +89,8 @@ public class PlayerController : MonoBehaviour
         {
             //"AddForce" to make player jump and set "isGrounded = false;" to remove double jump
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            animator.SetBool("Jump", true);
+            animator.SetBool("IsJump", true);
+            animator.SetTrigger("Jump");
             isGrounded = false;
             jumpSource.Play();
         }
@@ -119,7 +122,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
-            animator.SetBool("Jump", false);
+            animator.SetBool("IsJump", false);
             isGrounded = true;
         }
     }
