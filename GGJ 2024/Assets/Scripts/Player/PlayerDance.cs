@@ -21,6 +21,7 @@ public sealed class PlayerDance : MonoBehaviour
         {
             isDancing=true;
             PlayerLaughIndicator.Instance.Score += 100;
+            Viewers.instance.UpdateEndNumber(50);
             Invoke(nameof(EndDance),5f);
         }
     }

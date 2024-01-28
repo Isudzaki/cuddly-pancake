@@ -21,6 +21,16 @@ public abstract class Projectile : MonoBehaviour
         audioSource = GameObject.Find("ActivateAudio").GetComponent<AudioSource>();
         audioSource.PlayOneShot(activateClip);
         PlayerLaughIndicator.Instance.Score += 100;
+        Viewers.instance.UpdateEndNumber(50);
+        Destroy(gameObject);
+    }
+    #endregion
+
+    #region Grouded
+    protected virtual void ActivateAI()
+    {
+        EnemyLaugh.Instance.Score += 100;
+        Viewers.instance.UpdateEndNumber(50);
         Destroy(gameObject);
     }
     #endregion

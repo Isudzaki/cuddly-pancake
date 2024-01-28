@@ -36,6 +36,7 @@ public sealed class NewRoundSetter : MonoBehaviour
             tile.TileColor = ColorDatabase.Colors[Random.Range(0, ColorDatabase.Colors.Length)];
         }
         CheckPlayer();
+        CheckEnemies();
         itemSpawn.SpawnItem();
         //Checking all tiles for desired color ones
         Invoke(nameof(CheckTiles), 0.05f);
@@ -76,6 +77,23 @@ public sealed class NewRoundSetter : MonoBehaviour
             for (int i = 0; i < mixerGroups.Length; i++)
             {
                 mixerGroups[i].audioMixer.DOSetFloat("LowPass", 10000,1);
+            }
+        }
+
+    }
+    #endregion
+
+    #region Check Enemies
+    //Check's if the enemies are dead and if yes respawn
+    private void CheckEnemies()
+    {
+        EnemyRespawn[] enemyRespawns = FindObjectsOfType<EnemyRespawn>();
+        foreach(EnemyRespawn enemyRespawn in enemyRespawns)
+        {
+            if (enemyRespawn.canRespawn)
+            {
+                playerSpawn.RespawnEnemy(enemyRespawn.enemy);
+                enemyRespawn.canRespawn = false;
             }
         }
 

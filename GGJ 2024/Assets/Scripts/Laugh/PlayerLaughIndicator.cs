@@ -22,7 +22,8 @@ public sealed class PlayerLaughIndicator : MonoBehaviour
             _score = value;
 
             textSlider.DOValue(_score,0.5f);
-
+            if(value>0)
+            LaughSound.Instance.Laugh();
             if (_score < 0) Score = 0;
             else if (_score > textSlider.maxValue) Score = Mathf.RoundToInt(textSlider.maxValue);
         }

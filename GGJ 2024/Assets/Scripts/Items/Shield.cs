@@ -9,4 +9,13 @@ public sealed class Shield : Item
         Destroy(gameObject);
     }
     #endregion
+
+    #region Grab AI
+    public override void GrabAI()
+    {
+        if (EnemyShield.Instance.haveShield) return;
+        EnemyShield.Instance.SpawnShield();
+        Destroy(gameObject);
+    }
+    #endregion
 }

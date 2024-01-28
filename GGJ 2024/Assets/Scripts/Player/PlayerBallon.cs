@@ -52,6 +52,7 @@ public class PlayerBallon : MonoBehaviour
         rb.mass = 1;
         haveBall = false;
         _ball.GetComponent<BoxCollider>().enabled = true;
+        _ball.transform.SetParent(null);
         Rigidbody ballRb = _ball.GetComponent<Rigidbody>();
         ballRb.isKinematic = false;
         ballRb.velocity=new Vector3(0,5,0);

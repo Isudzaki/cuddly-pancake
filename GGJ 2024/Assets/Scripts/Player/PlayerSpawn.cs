@@ -32,4 +32,13 @@ public sealed class PlayerSpawn : MonoBehaviour
         playerTF.position = new Vector3(Random.Range(minX, maxX), 0.5f, Random.Range(minZ, maxZ));
     }
     #endregion
+
+    #region Respawn Enemy
+    public void RespawnEnemy(EnemyAI enemy)
+    {
+        enemy.enabled = true;
+        enemy.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+        enemy.transform.position = new Vector3(Random.Range(minX, maxX), 0.5f, Random.Range(minZ, maxZ));
+    }
+    #endregion
 }

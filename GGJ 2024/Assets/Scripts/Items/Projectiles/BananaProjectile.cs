@@ -21,6 +21,11 @@ public class BananaProjectile : Projectile
         {
             Activate();
         }
+
+        else if (collision.gameObject.TryGetComponent(out EnemyAI enemyAI) && _canActivate)
+        {
+            ActivateAI();
+        }
     }
     #endregion
 
@@ -32,8 +37,22 @@ public class BananaProjectile : Projectile
         PlayerController.Instance.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
         Camera.main.DOShakePosition(0.5f, 0.5f, 10, 0, true);
         DOTween.Sequence()
-        .Append(transform.DOScale(new Vector3(0, 0, 0), 0.5f))
+        .Append(transform.DOScale(new Vector3(0, 0, 0), 1f))
         .AppendCallback(InactiveBanana);
+        base.Activate();
+    }
+    #endregion
+
+    #region Activate
+    protected override void ActivateAI()
+    {
+        Debug.Log("Banana!");
+        EnemyLaugh.Instance.Score -= 100;
+        EnemyAI.Instance.speed = 0;
+        EnemyAI.Instance.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+        DOTween.Sequence()
+        .Append(transform.DOScale(new Vector3(0, 0, 0), 1f))
+        .AppendCallback(InactiveBananaEnemy);
         base.Activate();
     }
     #endregion
@@ -42,6 +61,14 @@ public class BananaProjectile : Projectile
     protected void InactiveBanana()
     {
         PlayerController.Instance.isFreezed = false;
+        Destroy(gameObject);
+    }
+    #endregion
+
+    #region Inavtive Banana
+    protected void InactiveBananaEnemy()
+    {
+        EnemyAI.Instance.speed = 1;
         Destroy(gameObject);
     }
     #endregion

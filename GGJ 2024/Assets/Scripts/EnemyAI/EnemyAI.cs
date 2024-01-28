@@ -1,27 +1,27 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class EnemyAI : MonoBehaviour
 {
-    private NavMeshAgent agent;
+    [SerializeField] private GameObject enemyRespawnPrefab;
+
+    private Transform target;
+
+    public EnemyRespawn enemyRespawn;
+
+    public int speed;
+
+    public static EnemyAI Instance;
 
     private void Awake()
     {
+        Instance = this;
         Invoke(nameof(CheckTiles), 5f);
     }
 
     private void Start()
     {
-        agent = GetComponent<NavMeshAgent>();
-    }
-
-    private void Update()
-    {
-        CheckTiles();
-        Debug.Log(TilesList.Instance.Tiles);
-        Debug.Log(DesiredColorSetter.instance.desiredColor);
+        enemyRespawn = Instantiate(enemyRespawnPrefab,transform.position,Quaternion.identity).GetComponent<EnemyRespawn>();
+        enemyRespawn.enemy = this;
     }
 
     #region Check Tiles
@@ -34,7 +34,7 @@ public class EnemyAI : MonoBehaviour
             {
                 if (tile.TileColor.color == DesiredColorSetter.instance.desiredColor)
                 {
-                    agent.destination = tile.transform.position;
+                    target = tile.transform;
                 }
             }
         }
@@ -42,5 +42,31 @@ public class EnemyAI : MonoBehaviour
         Invoke(nameof(CheckTiles), 10f);
     }
     #endregion
+
+    public void Update()
+    {
+        if (target != null && Vector3.Distance(transform.position,target.position)>0.05)
+        {
+            // Move the enemy towards the target
+            transform.position = Vector3.MoveTowards(transform.position, new Vector3(target.position.x,transform.position.y,target.position.z), speed * Time.deltaTime);
+
+            Vector3 direction = target.position - transform.position;
+            direction.y = 0f; // Ignore the Y axis
+
+            // Create a rotation based on the direction
+            Quaternion rotation = Quaternion.LookRotation(direction);
+
+            // Rotate to face the target (optional)
+            transform.rotation = rotation;
+
+            // Check if the enemy has reached the target
+            if (Vector3.Distance(transform.position, target.position) < 0.1f)
+            {
+                // Do something when the enemy reaches the target
+                Debug.Log("Enemy reached the target!");
+                target = null; // Set target to null to stop moving
+            }
+        }
+    }
 
 }

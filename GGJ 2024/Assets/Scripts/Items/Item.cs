@@ -19,4 +19,8 @@ public abstract class Item : MonoBehaviour
         audioSource.PlayOneShot(grabClip);
     }
     #endregion
+
+    #region Grab AI
+    public abstract void GrabAI();
+    #endregion
 }

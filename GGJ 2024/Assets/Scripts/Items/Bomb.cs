@@ -10,4 +10,11 @@ public sealed class Bomb : Item
         Destroy(gameObject);
     }
     #endregion
+
+    #region Grab AI
+    public override void GrabAI()
+    {
+        Destroy(gameObject);
+    }
+    #endregion
 }

@@ -5,8 +5,6 @@ using System.Collections.Generic;
 public sealed class TilesColorChecker : MonoBehaviour
 {
     #region Serialized Vars
-    [Header("Desired Color Setter")]
-    [SerializeField] private DesiredColorSetter desColorSetter;
     [Header("Audio")]
     [SerializeField] private AudioSource fallSource;
     #endregion
@@ -28,7 +26,7 @@ public sealed class TilesColorChecker : MonoBehaviour
         int i = 0;
         foreach (Tile tile in TilesList.Instance.Tiles)
         {
-            if (tile.TileColor.color != desColorSetter.desiredColor)
+            if (tile.TileColor.color != DesiredColorSetter.instance.desiredColor)
             {
                 fallTiles.Add(tile);
                 tile.transform.DOShakePosition(0.5f, 0.05f, 10, 0);

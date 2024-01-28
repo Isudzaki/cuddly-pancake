@@ -26,16 +26,25 @@ public sealed class PlayerDeathZone: MonoBehaviour
             playerController.GetComponent<PlayerController>().haveItem = false;
             Destroy(playerController.GetComponent<PlayerThrow>().obj);
             Transform looseScreenTF = looseScreen.transform;
+            looseScreen.SetActive(true);
             looseScreen.transform.position = new Vector3(Screen.width*2,looseScreenTF.position.y, looseScreenTF.position.z);
             looseScreen.transform.DOLocalMoveX(0, 0.75f).SetEase(Ease.InBounce);
-            looseScreen.SetActive(true);
             respawnTimer.InvokeTimer();
             for(int i = 0; i < mixerGroups.Length; i++)
             {
                 mixerGroups[i].audioMixer.DOSetFloat("LowPass", 300, 0.75f);
             }
             PlayerController.Instance.isFreezed = false;
-            PlayerLaughIndicator.Instance.Score -= PlayerLaughIndicator.Instance.Score/2;
+            PlayerLaughIndicator.Instance.Score = PlayerLaughIndicator.Instance.Score/2;
+            Viewers.instance.UpdateEndNumber(-50);
+        }
+        else if(other.TryGetComponent(out EnemyAI enemyAI))
+        {
+            EnemyAI.Instance.speed = 1;
+            EnemyLaugh.Instance.Score = EnemyLaugh.Instance.Score / 2;
+            enemyAI.enemyRespawn.InvokeTimer();
+            enemyAI.enabled = false;
+            Viewers.instance.UpdateEndNumber(50);
         }
     }
     #endregion
