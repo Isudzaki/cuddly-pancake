@@ -12,6 +12,8 @@ public class EnemyAI : MonoBehaviour
 
     public static EnemyAI Instance;
 
+    public Animator animator;
+
     private void Awake()
     {
         Instance = this;
@@ -47,6 +49,7 @@ public class EnemyAI : MonoBehaviour
     {
         if (target != null && Vector3.Distance(transform.position,target.position)>0.05)
         {
+            animator.SetFloat("Speed", 1f);
             // Move the enemy towards the target
             transform.position = Vector3.MoveTowards(transform.position, new Vector3(target.position.x,transform.position.y,target.position.z), speed * Time.deltaTime);
 
@@ -60,8 +63,9 @@ public class EnemyAI : MonoBehaviour
             transform.rotation = rotation;
 
             // Check if the enemy has reached the target
-            if (Vector3.Distance(transform.position, target.position) < 0.1f)
+            if (Vector3.Distance(transform.position, target.position) < 0.2f)
             {
+                animator.SetFloat("Speed", 0.01f);
                 // Do something when the enemy reaches the target
                 Debug.Log("Enemy reached the target!");
                 target = null; // Set target to null to stop moving

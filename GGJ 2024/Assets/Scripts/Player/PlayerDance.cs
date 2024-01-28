@@ -7,6 +7,8 @@ public sealed class PlayerDance : MonoBehaviour
     public bool isDancing=false;
 
     public static PlayerDance Instance;
+
+    public Animator animator;
     #endregion
 
     #region Awake
@@ -20,6 +22,7 @@ public sealed class PlayerDance : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.B) && !isDancing)
         {
             isDancing=true;
+            animator.SetTrigger("StartDance");
             PlayerLaughIndicator.Instance.Score += 100;
             Viewers.instance.UpdateEndNumber(50);
             Invoke(nameof(EndDance),5f);
@@ -31,6 +34,7 @@ public sealed class PlayerDance : MonoBehaviour
     private void EndDance()
     {
         isDancing = false;
+        animator.SetTrigger("EndDance");
     }
     #endregion
 }

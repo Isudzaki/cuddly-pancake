@@ -29,7 +29,7 @@ public abstract class Projectile : MonoBehaviour
     #region Grouded
     protected virtual void ActivateAI()
     {
-        EnemyLaugh.Instance.Score += 100;
+        PlayerLaughIndicator.Instance.Score += 100;
         Viewers.instance.UpdateEndNumber(50);
         Destroy(gameObject);
     }

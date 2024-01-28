@@ -39,18 +39,20 @@ public class Viewers : MonoBehaviour
 
     IEnumerator SmoothTransition()
     {
+        int targetValue = Mathf.Max(0, endNumber);
+
         float currentTime = 0f;
         int startValue = int.Parse(numberText.text);
 
         while (currentTime <= transitionDuration)
         {
-            float currentValue = Mathf.Lerp(startValue, endNumber, currentTime / transitionDuration);
+            float currentValue = Mathf.Lerp(startValue, targetValue, currentTime / transitionDuration);
             UpdateNumber(Mathf.RoundToInt(currentValue));
             currentTime += Time.deltaTime;
             yield return null;
         }
 
-        UpdateNumber(endNumber);
+        UpdateNumber(targetValue);
     }
 
     private void UpdateNumber(int value)
