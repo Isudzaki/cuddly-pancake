@@ -62,6 +62,11 @@ public sealed class NewRoundSetter : MonoBehaviour
                 }
             }
         }
+        EnemyAI[] enemyAIs = FindObjectsOfType<EnemyAI>();
+        foreach (EnemyAI enemy in enemyAIs)
+        {
+            enemy.CheckTiles();
+        }
     }
     #endregion
 
@@ -69,11 +74,6 @@ public sealed class NewRoundSetter : MonoBehaviour
     //Check's if the player is dead and if yes respawn
     private void CheckPlayer()
     {
-        if (PlayerController.Instance.enabled == true)
-        {
-            PlayerLaughIndicator.Instance.Score += 100;
-        }
-
         if (respawnTimer.canRespawn)
         {
             looseScreen.SetActive(false);
@@ -93,12 +93,7 @@ public sealed class NewRoundSetter : MonoBehaviour
     private void CheckEnemies()
     {
         EnemyRespawn[] enemyRespawns = FindObjectsOfType<EnemyRespawn>();
-
-        if (EnemyAI.Instance.enabled == true)
-        {
-            EnemyLaugh.Instance.Score += 100;
-        }
-        foreach (EnemyRespawn enemyRespawn in enemyRespawns)
+        foreach(EnemyRespawn enemyRespawn in enemyRespawns)
         {
             if (enemyRespawn.canRespawn)
             {

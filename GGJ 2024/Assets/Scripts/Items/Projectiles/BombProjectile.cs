@@ -30,8 +30,6 @@ public sealed class BombProjectile : Projectile
         {
             if (hitCollider.GetComponent<PlayerController>() != null && hitCollider.GetComponent<PlayerShield>().haveShield == false)
             {
-                PlayerLaughIndicator.Instance.Score += 100;
-                Viewers.instance.UpdateEndNumber(50);
 
                 hitCollider.GetComponent<Rigidbody>().AddExplosionForce(force / Vector3.Distance(hitCollider.transform.position, transform.position), transform.position, radius);
             }
@@ -64,9 +62,6 @@ public sealed class BombProjectile : Projectile
             }
             else if (hitCollider.GetComponent<EnemyAI>() != null && hitCollider.GetComponent<EnemyShield>().haveShield == false)
             {
-                EnemyLaugh.Instance.Score += 100;
-                Viewers.instance.UpdateEndNumber(50);
-
                 hitCollider.GetComponent<Rigidbody>().AddExplosionForce(force / Vector3.Distance(hitCollider.transform.position, transform.position), transform.position, radius);
             }
         }

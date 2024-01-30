@@ -24,7 +24,7 @@ MonoBehaviour:
     m_Value: 1.27
   scatter:
     m_OverrideState: 1
-    m_Value: 0.646
+    m_Value: 0.63
   clamp:
     m_OverrideState: 0
     m_Value: 65472
@@ -151,14 +151,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 1
   type:
-    m_OverrideState: 0
-    m_Value: 0
+    m_OverrideState: 1
+    m_Value: 1
   intensity:
     m_OverrideState: 1
-    m_Value: 0.263
+    m_Value: 0.5
   response:
-    m_OverrideState: 0
-    m_Value: 0.8
+    m_OverrideState: 1
+    m_Value: 0.37
   texture:
     m_OverrideState: 0
     m_Value: {fileID: 0}

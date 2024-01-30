@@ -856,7 +856,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 2e141a94276494f0184ba5ab0641c1a8, type: 3}
-    m_FontSize: 70
+    m_FontSize: 60
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -987,10 +987,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.59
+  m_Radius: 1.4666587
   m_Height: 6.454668
   m_Direction: 1
-  m_Center: {x: 0, y: 0.889914, z: 5.1509365e-16}
+  m_Center: {x: -0.12334131, y: 0.889914, z: 5.1509365e-16}
 --- !u!114 &3380713697491039140
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1091,6 +1091,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDancing: 0
+  animator: {fileID: 0}
 --- !u!1 &7305021172499499474
 GameObject:
   m_ObjectHideFlags: 0

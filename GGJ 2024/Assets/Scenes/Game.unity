@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18018535, g: 0.22559482, b: 0.30677685, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3367,10 +3367,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTF: {fileID: 1446841960}
-  minX: -0.5
-  maxX: 2.5
-  minZ: 2
-  maxZ: 0
+  minX: -2
+  maxX: 4
+  minZ: -2
+  maxZ: 1
 --- !u!1001 &511150812
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5569,12 +5569,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   items:
   - {fileID: 5358031508150889794, guid: e0bf56b86ff864b3bb53b502407c5777, type: 3}
-  - {fileID: 6315491635914226780, guid: be59aa482288c4ef499b90ad8eb2a40e, type: 3}
+  - {fileID: 7537578399464887431, guid: be59aa482288c4ef499b90ad8eb2a40e, type: 3}
   - {fileID: 6315491635914226780, guid: a03b40c8d6c5845ec91359b746a49430, type: 3}
-  minX: -0.5
-  maxX: 2.5
-  minZ: 2
-  maxZ: 0
+  - {fileID: 3749673251746439403, guid: f87ab4d5d3a2b49fab75cea87c45e332, type: 3}
+  minX: -2
+  maxX: 4
+  minZ: -2
+  maxZ: 1
 --- !u!1 &845258043
 GameObject:
   m_ObjectHideFlags: 0
@@ -6658,7 +6659,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   haveShield: 0
-  time: 0
+  time: 10
   shieldPrefab: {fileID: 947742123098075520, guid: 06392bfe001a842f99e04de22a2f6d8e,
     type: 3}
 --- !u!1 &1103295268
@@ -9900,7 +9901,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 35}
+  m_AnchoredPosition: {x: 0, y: 40}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1723950659
@@ -13025,6 +13026,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2653196913917639887, guid: dafcebe3b60a04c97830b95a891504ec,
         type: 3}
+    - target: {fileID: 5523257126301005528, guid: 4d32c603ca79c1340937db31fc44554c,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.7
+      objectReference: {fileID: 0}
     - target: {fileID: 6319308383196416920, guid: 4d32c603ca79c1340937db31fc44554c,
         type: 3}
       propertyPath: ballPrefab
@@ -13119,6 +13125,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 667684645386307162, guid: 93a94790a0e7192478661aa5dceb9e9b,
+        type: 3}
+      propertyPath: MaxDistance
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 667684645386307162, guid: 93a94790a0e7192478661aa5dceb9e9b,
+        type: 3}
+      propertyPath: MinDistance
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 667684645386307162, guid: 93a94790a0e7192478661aa5dceb9e9b,
+        type: 3}
+      propertyPath: rolloffMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 667684645386307162, guid: 93a94790a0e7192478661aa5dceb9e9b,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 976694972314494439, guid: 93a94790a0e7192478661aa5dceb9e9b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13179,6 +13205,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 2256123908368937214, guid: 93a94790a0e7192478661aa5dceb9e9b,
+        type: 3}
+      propertyPath: MaxDistance
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2256123908368937214, guid: 93a94790a0e7192478661aa5dceb9e9b,
+        type: 3}
+      propertyPath: MinDistance
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2256123908368937214, guid: 93a94790a0e7192478661aa5dceb9e9b,
+        type: 3}
+      propertyPath: rolloffMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2256123908368937214, guid: 93a94790a0e7192478661aa5dceb9e9b,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2858765637714421536, guid: 93a94790a0e7192478661aa5dceb9e9b,
         type: 3}
       propertyPath: m_Name
@@ -13194,6 +13240,31 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 85ea18d6002681644be61bebb450b98e, type: 2}
+    - target: {fileID: 5149939861359627895, guid: 93a94790a0e7192478661aa5dceb9e9b,
+        type: 3}
+      propertyPath: MaxDistance
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5149939861359627895, guid: 93a94790a0e7192478661aa5dceb9e9b,
+        type: 3}
+      propertyPath: MinDistance
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5149939861359627895, guid: 93a94790a0e7192478661aa5dceb9e9b,
+        type: 3}
+      propertyPath: rolloffMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5149939861359627895, guid: 93a94790a0e7192478661aa5dceb9e9b,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7469445462614288291, guid: 93a94790a0e7192478661aa5dceb9e9b,
+        type: 3}
+      propertyPath: m_Name
+      value: EnemyFootsteps
+      objectReference: {fileID: 0}
     - target: {fileID: 8870136324786915172, guid: 93a94790a0e7192478661aa5dceb9e9b,
         type: 3}
       propertyPath: speed

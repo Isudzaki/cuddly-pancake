@@ -39,11 +39,6 @@ public sealed class DesiredColorSetter : MonoBehaviour
         desColorImg.DOColor(desiredColor,0.75f);
         desiredNum = desColor.num;
         //Repeating function
-        EnemyAI[] enemyAIs = FindObjectsOfType<EnemyAI>();
-        foreach(EnemyAI enemy in enemyAIs)
-        {
-            enemy.CheckTiles();
-        }
         Invoke(nameof(SetColor), 10f);
     }
     #endregion
